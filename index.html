@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; padding: 0px; margin: 0; background-color: #f9f9f9; -webkit-app-region: drag; }
+    #appContainer { margin: 0 auto; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); -webkit-app-region: no-drag; }
+    #memoInput { width: 100%; padding: 8px; font-size: 0.95rem; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+    #timer-container{ display: flex; justify-content: space-between;}
+    #timer { font-size: 2.5rem; font-weight: bold; margin: 10px 0; color: #333; display:inline-block; vertical-align: middle; }
+    #timer.break-mode { color: #2196F3 !important; }
+    
+    .btn-container { display: inline-flex; justify-content: space-between; flex-direction: column; vertical-align: middle; align-items: stretch; }
+    button { padding: 4px 10px; width: 60px; font-size: 0.8rem; cursor: pointer; color: white; border: none; font-weight: bold; }
+    #startBtn { background-color: #2ed573; }
+    #stopBtn { background-color: #ffa502; }
+    #resetBtn { background-color: #ff4757; }
+    button:active { opacity: 0.8; }
+    
+    #historySection { text-align: left; border-top: 1px solid #eee; padding-top: 10px; }
+    summary { font-size: 0.85rem; color: #666; cursor: pointer; font-weight: bold; margin-bottom: 5px; outline: none; }
+    summary:hover { color: #3b82f6; }
+    #historyList { max-height: 200px; overflow-y: auto; margin-top: 8px; }
+    .history-item { font-size: 0.8rem; color: #444; margin-bottom: 6px; padding-bottom: 4px; border-bottom: 1px dashed #eee; word-break: break-all; }
+    .history-time { font-weight: bold; color: #ff4757; margin-right: 6px; }
+  </style>
+</head>
+<body>
+  <div id="appContainer">
+    <div>
+      <input type="text" id="memoInput" placeholder="Task name" autofocus />
+    </div>
+    <div id="timer-container">
+        <button id="startBtn">Start</button>
+      <div id="timer">25:00</div>
+      <div class="btn-container">
+        <button id="stopBtn">Stop</button>
+        <button id="resetBtn">Reset</button>
+      </div>
+    </div>
+    <details id="historySection">
+      <summary>過去10時間の履歴を表示</summary>
+      <div id="historyList"></div>
+    </details>
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>
